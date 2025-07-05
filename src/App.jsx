@@ -108,7 +108,7 @@ function App() {
   return (
     <>
 
-      <UserAuthContextProvider>
+    
         <BrowserRouter>
           <Header />
           <Routes>
@@ -276,163 +276,7 @@ function App() {
             />
 
 
-            {/* Old Application >>>>>>>>>>>>>>>>>>>>>>>>>> */}
-
-            <Route exact path="/home" element={
-
-              <ProtectedRoute>
-                <RootLayout />
-              </ProtectedRoute>
-
-            } />
-            <Route exact path="/transcription" element={
-
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-
-            />
-            <Route exact path="/realtimetranscriptions" element={
-
-              <ProtectedRoute>
-                <RealTimeTranscriptions />
-              </ProtectedRoute>
-            }
-
-            />
-            <Route exact path="/virtual-transcript" element={
-
-              <ProtectedRoute>
-                <VirtualTranscript />
-              </ProtectedRoute>
-            }
-
-            />
-            <Route exact path="/botapi" element={
-
-              <ProtectedRoute>
-                <BotApi />
-              </ProtectedRoute>
-
-            } />
-
-
-            <Route exact path="/pricing" element={
-
-              <ProtectedRoute>
-                <Pricing />
-              </ProtectedRoute>}
-
-            />
-
-            <Route exact path="/plandetails" element={
-
-              <ProtectedRoute>
-                <PlanDetails />
-              </ProtectedRoute>}
-
-            />
-            <Route exact path="/pre-audio-transcriptions" element={
-
-              <ProtectedRoute>
-                <PreAudioTranscriptions />
-              </ProtectedRoute>}
-
-            />
-            <Route exact path="/user-profile" element={
-
-              <ProtectedRoute>
-                <UserProfilePage />
-              </ProtectedRoute>}
-
-            />
-            <Route exact path="/user-security-setting" element={
-
-              <ProtectedRoute>
-                <UserSecurity />
-              </ProtectedRoute>}
-
-            />
-            <Route exact path="/user-payment-info" element={
-
-              <ProtectedRoute>
-                <UserPaymentInfo />
-              </ProtectedRoute>}
-
-            />
-
-
-            <Route exact path="/pre-audio-transcriptions/view/:id" element={
-
-              <ProtectedRoute>
-                <ViewTranscriptions />
-              </ProtectedRoute>}
-
-            />
-
-
-            <Route exact path="/resyncingAi" element={
-
-              <ProtectedRoute>
-                <SyncAiPage />
-              </ProtectedRoute>}
-
-            />
-
-            <Route exact path="/resyncingAi/view-sync-file/:id" element={
-
-              <ProtectedRoute>
-                <ViewSyncFiles />
-              </ProtectedRoute>}
-
-            />
-
-            <Route exact path="/note-case" element={
-
-              <ProtectedRoute>
-                <MainLayout />
-              </ProtectedRoute>}
-
-            />
-            <Route exact path="/summarization-deposition" element={
-
-              <ProtectedRoute>
-                <SummriazationDeposition />
-              </ProtectedRoute>}
-
-            />
-
-            <Route exact path="/view-summarization-deposition/:id" element={
-
-              <ProtectedRoute>
-                <ViewSummaryDeposition />
-              </ProtectedRoute>}
-
-            />
-
-            <Route exact path="/zoom-authorization" element={
-
-              <ProtectedRoute>
-                <ZoomAuthorization />
-              </ProtectedRoute>}
-
-            />
-
-            <Route exact path="/ocr" element={
-
-              <ProtectedRoute>
-                <OCR />
-              </ProtectedRoute>}
-
-            />
-            <Route exact path="/ocr-view/:id" element={
-
-              <ProtectedRoute>
-                <ViewOcrFiles />
-              </ProtectedRoute>}
-
-            />
+          
             <Route exact path="/ocr-info" element={
 
 
@@ -485,8 +329,6 @@ function App() {
         <div> <Toaster /></div>
 
 
-
-      </UserAuthContextProvider>
     </>
   );
 }

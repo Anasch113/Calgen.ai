@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
           </div>
           <div className=" mt-8 text-start md:ml-[8%] w-full">
-            <p className="text-xs md:mb-0 mb-4 absolute md:text-sm">© 2025 Captify.live by Bradley Reporting</p>
+            <p className="text-xs md:mb-0 mb-4 absolute md:text-sm">© 2025 Calgen.ai by Bradley Reporting</p>
           </div>
         </div>
         <div className="flex gap-20 justify-center opacity-50 w-1/2 h-[500px]">

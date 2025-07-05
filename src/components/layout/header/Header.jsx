@@ -3,7 +3,7 @@ import logo from "../../../assets/logo.png";
 import "./header.styles.css";
 import { IoIosArrowBack, IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { FaBars } from 'react-icons/fa6';
-import { useUserAuth } from '../../../context/UserAuthContext'
+
 import { useNavigate } from 'react-router-dom'
 import Sidebar from "../../../layout/Sidebar"
 
@@ -15,13 +15,8 @@ const Header = () => {
     const whatWeAreRef = useRef(null);
 
     const navigate = useNavigate();
-    const { user, logOut, userBalance } = useUserAuth();
+   
 
-
-    const handleLogout = async () => {
-        await logOut()
-        navigate('/login')
-    }
 
     const toggleWhatWeDoDropdown = () => {
         setIsWhatWeDoOpen(prevState => !prevState);
@@ -147,54 +142,30 @@ const Header = () => {
             <div className="w-full flex justify-between items-center relative">
                 {/* logo  */}
                 <a href="/" className="custom__logo md:block hidden group mx-auto md:mx-20 z-20 md:z-50">
-                    <img src='/Captify.png' alt="logo" className="md:group-hover:scale-[.3]  md:group-hover:-translate-x-6 md:group-hover:-translate-y-2" />
+                    <img src='/calgen.jpeg' alt="logo" className="md:group-hover:scale-[.3]  md:group-hover:-translate-x-6 md:group-hover:-translate-y-2 " />
+                    
                     <h1 className="custom__logo__text md:block hidden group-hover:-translate-y-8 md:group-hover:-translate-y-12">Bradley Reporting</h1>
                 </a>
 
             </div>
 
-            <div className={`w-full md:hidden  h-[70px] px-4 flex items-center ${!user ? 'justify-between ' : 'justify-around mx-10'}   `}>
+            <div className={`w-full md:hidden  h-[70px] px-4 flex items-center 'justify-around mx-10'  `}>
 
-                {
-                    !user && <div className="cursor-pointer" onClick={() => setIsMobileMenuOpen(prev => !prev)}>
-                        <FaBars size={24} />
-                    </div>
-                }
+               
 
                 <div >
                     <a href="/">
-                        <img src="/Captify.png" alt="logo" className='w-36 rounded-md' />
+                        <img src="/calgen.jpeg" alt="logo" className='w-36 rounded-md' />
                     </a>
 
-
                 </div>
-                <div className="">
-                    {
-                        !user ? (<li className="hover:text-[#777] list-none">
-                            <a href="/login" className='cursor-pointer z-[999]'>
-                                <button className="hover:text-[#777]">Login</button>
-                            </a>
-                        </li>) : (
-
-                            <li className="hover:text-[#777] list-none ">
-                                <a href="/home" className='cursor-pointer z-[999] '>
-                                    <button className="hover:text-[#777]">Dashboard</button>
-                                </a>
-
-
-
-
-                            </li>
-                        )
-                    }
-
-                </div>
+               
             </div>
 
             <div className='md:block hidden'>
                 <ul className="flex relative justify-center items-center gap-x-6 mt-8">
-                    {
-                        !user && <li className="cursor-pointer flex items-center gap-x-2 hover:text-[#777]" onClick={toggleWhatWeDoDropdown}>
+                    
+                         <li className="cursor-pointer flex items-center gap-x-2 hover:text-[#777]" onClick={toggleWhatWeDoDropdown}>
                             <span>
                                 What we do
                             </span>
@@ -203,7 +174,7 @@ const Header = () => {
                                 <IoIosArrowDown />
                             </span>
                         </li>
-                    }
+                    
 
 
 
@@ -256,15 +227,14 @@ const Header = () => {
                             </div>
                         </ul>
                     )}
-                    {
-                        !user && <a href={'/what-clients-say'} className='hover:text-[#777] cursor-pointer'>
+                    
+                         <a href={'/what-clients-say'} className='hover:text-[#777] cursor-pointer'>
                             What Clients Say
                         </a>
-                    }
+                    
 
 
-                    {
-                        !user && <li className="relative cursor-pointer flex items-center gap-x-2 hover:text-[#777]" onClick={toggleWhatWeAreDropdown}>
+                    <li className="relative cursor-pointer flex items-center gap-x-2 hover:text-[#777]" onClick={toggleWhatWeAreDropdown}>
                             <span className=''>
                                 Who we are
                             </span>
@@ -272,17 +242,10 @@ const Header = () => {
                                 <IoIosArrowDown />
                             </span>
                         </li>
-                    }
+                    
 
 
 
-                    {
-                        user && <a href='/home' className='cursor-pointer z-[999] '>
-
-                            <button className='hover:text-[#777] text-white '>Dashboard</button>
-
-                        </a>
-                    }
                     {isWhatWeAreOpen && (
                         <ul ref={whatWeAreRef} className="absolute w-full max-w-[1980px] z-[999]  bg-[#202020] text-white   translate-y-[12rem] space-y-2 shadow-lg">
                             <div className='max-w-screen-2xl px-20 py-10'>
@@ -312,38 +275,6 @@ const Header = () => {
                 </ul>
 
 
-                {
-                    user ? (
-                        <div className=" md:flex justify-end items-center -mt-6 gap-x-6 mr-20 ">
-
-
-                            <span className='border p-3 rounded-lg]'>
-                                <p className=''>Credit Balance : {userBalance}$ </p>
-                            </span>
-
-                            <a onClick={handleLogout} className='cursor-pointer z-[999]'>
-
-                                <button className='hover:text-[#777] text-white '>Logout</button>
-
-                            </a>
-                        </div>
-
-
-
-                    ) : (
-                        <div className="hidden md:flex justify-end items-center -mt-6 gap-x-6 mr-20 z-[999]">
-
-                            <a href="/login" className='cursor-pointer z-[999]'>
-
-                                <button className='hover:text-[#777] text-white '>Login</button>
-
-                            </a>
-                            <a href="/signup" className='cursor-pointer z-[999]'>
-                                <button className='hover:text-[#777] text-white cursor-pointer z-[999]'>Signup</button>
-                            </a>
-                        </div>
-                    )
-                }
             </div>
 
 
